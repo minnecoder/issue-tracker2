@@ -23,6 +23,24 @@ exports.getTickets = async (req, res) => {
     }
 }
 
+// @desc Get tickets by assigned dev
+// @route GET /tickets/:name
+// @access Public
+exports.getTicketsAssignedDev = async (req, res) => {
+    try {
+
+        const tickets = await Ticket.find({ assignedDev: req.params.assignedDev })
+        console.log(tickets)
+        res.status(200).json({
+            success: true,
+            data: tickets
+        })
+    } catch (error) {
+        console.error(error)
+        return res.status(500).json({ error: "Server Error" })
+    }
+}
+
 // @ desc Get single ticket
 // @route GET /tickets/:id
 // @access Public

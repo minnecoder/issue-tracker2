@@ -5,7 +5,8 @@ const {
     getSingleTicket,
     addTicket,
     updateTicket,
-    deleteTicket
+    deleteTicket,
+    getTicketsAssignedDev
 } = require("../controllers/tickets")
 
 const router = express.Router()
@@ -20,5 +21,9 @@ router
     .get(getSingleTicket)
     .put(updateTicket)
     .delete(deleteTicket)
+
+router
+    .route("/:name")
+    .get(getTicketsAssignedDev)
 
 module.exports = router;

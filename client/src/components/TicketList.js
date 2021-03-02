@@ -4,6 +4,7 @@ import TicketDetails from "./TicketDetails"
 import CreateTicketModal from "./CreateTicketModal"
 
 export default function TicketList() {
+
     const [show, setShow] = useState(false)
     const [runTickets, setRunTickets] = useState(false)
     const reRender = () => setRunTickets(true)
@@ -11,9 +12,13 @@ export default function TicketList() {
     const closeModal = () => setShow(false)
     const [tickets, updateTickets] = useState([])
     const [ticketIndex, updateticketIndex] = useState("0")
+
     useEffect(() => {
         async function fetchTickets() {
-            const response = await fetch("/api/v1/tickets")
+            const firstName = sessionStorage.getItem("firstName")
+            const lastName = sessionStorage.getItem("lastName")
+            const fullName = `${firstName} ${lastName}`
+            const response = await fetch(`"/api/v1/tickets/:${fullName}"`)
             const json = await response.json()
             updateTickets(json.data)
         }
