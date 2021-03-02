@@ -51,7 +51,7 @@ export default function CreateTicket() {
                 ticketType: state.ticketType
             })
         })
-
+        history.push("/tickets")
     }
 
 
