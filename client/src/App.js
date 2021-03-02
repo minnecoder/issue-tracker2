@@ -9,6 +9,7 @@ import Projects from './pages/Projects';
 import Login from "./pages/Login"
 import Register from "./pages/Register"
 import CreateTicket from './pages/CreateTicket';
+import CreateProject from "./pages/CreateProject"
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Switch>
           <Route path="/" exact component={Login} />
           <Route path="/createtickets" component={CreateTicket} />
+          <Route path="/addproject" component={CreateProject} />
           <Route path="/dashboard" component={Dashboard} />
           <Route path="/manageroles" component={ManageRoles} />
           <Route path="/manageusers" component={ManageUsers} />
