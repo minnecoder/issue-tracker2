@@ -174,7 +174,7 @@ select{
     ${'' /* border: 1px solid #EB7012; */}
     background: #EB7012;
     border-radius: 5px;
-    padding: 1.5rem;
+    padding: 1rem;
     margin: .5rem;
     position: absolute;
     top: 10px;
