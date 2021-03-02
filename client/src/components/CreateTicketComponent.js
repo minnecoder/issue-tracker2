@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
+import { useHistory } from 'react-router-dom'
 import styled from "styled-components"
 
 export default function CreateTicket() {
+    let history = useHistory()
     const [projects, setProjects] = useState([])
     const [state, setState] = useState({
         project: "",
@@ -56,7 +58,7 @@ export default function CreateTicket() {
     return (
         <Wrapper>
 
-            <button className="closeBtn">Close X</button>
+            <button className="closeBtn" onClick={() => { history.push("/tickets") }}>Close X</button>
             <h1>Create A Ticket</h1>
             <form onSubmit={handleSubmit}>
                 <label>
