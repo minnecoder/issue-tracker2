@@ -18,7 +18,7 @@ export default function TicketList() {
             const firstName = sessionStorage.getItem("firstName")
             const lastName = sessionStorage.getItem("lastName")
             const fullName = `${firstName} ${lastName}`
-            const response = await fetch(`"/api/v1/tickets/:${fullName}"`)
+            const response = await fetch(`/api/v1/tickets/name/${fullName}`)
             const json = await response.json()
             updateTickets(json.data)
         }

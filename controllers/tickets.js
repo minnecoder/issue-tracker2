@@ -27,9 +27,11 @@ exports.getTickets = async (req, res) => {
 // @route GET /tickets/:name
 // @access Public
 exports.getTicketsAssignedDev = async (req, res) => {
+    console.log(req.params)
+    var assignedDev = req.params.assignedDev
     try {
 
-        const tickets = await Ticket.find({ assignedDev: req.params.assignedDev })
+        const tickets = await Ticket.find({ assignedDev: assignedDev })
         console.log(tickets)
         res.status(200).json({
             success: true,

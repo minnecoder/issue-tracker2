@@ -23,7 +23,7 @@ router
     .delete(deleteTicket)
 
 router
-    .route("/:name")
+    .route("/name/:assignedDev")
     .get(getTicketsAssignedDev)
 
 module.exports = router;
