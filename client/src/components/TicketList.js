@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { useHistory } from "react-router-dom"
 import TicketDetails from "./TicketDetails"
 import CreateTicketModal from "./CreateTicketModal"
 
 export default function TicketList() {
-
+    let history = useHistory()
     const [show, setShow] = useState(false)
     const [runTickets, setRunTickets] = useState(false)
     const reRender = () => setRunTickets(true)
@@ -36,7 +37,7 @@ export default function TicketList() {
             < div >
                 <TableTitle>
                     <h3>Tickets</h3>
-                    <button onClick={openModal}>Create A Ticket</button>
+                    <button onClick={() => { history.push("/createtickets") }}>Create A Ticket</button>
                 </TableTitle>
                 <Table>
                     <thead>
