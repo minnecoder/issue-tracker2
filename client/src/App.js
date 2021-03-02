@@ -8,6 +8,7 @@ import ManageUsers from './pages/ManageUsers';
 import Projects from './pages/Projects';
 import Login from "./pages/Login"
 import Register from "./pages/Register"
+import CreateTicket from './pages/CreateTicket';
 
 function App() {
   return (
@@ -16,12 +17,14 @@ function App() {
       <HashRouter>
         <Switch>
           <Route path="/" exact component={Login} />
+          <Route path="/createtickets" component={CreateTicket} />
           <Route path="/dashboard" component={Dashboard} />
           <Route path="/manageroles" component={ManageRoles} />
           <Route path="/manageusers" component={ManageUsers} />
           <Route path="/projects" component={Projects} />
           <Route path="/tickets" component={Tickets} />
           <Route path="/register" component={Register} />
+
         </Switch>
       </HashRouter>
     </div>
