@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from 'react'
+import { useHistory } from "react-router-dom"
 import styled from "styled-components"
-import AddProjectModal from "./AddProjectModal"
 
-// TODO : Refresh projects after adding new project
 export default function ProjectsList() {
+    let history = useHistory()
     const [projects, updateProjects] = useState([])
-    const [show, setShow] = useState(false)
-    const openModal = () => setShow(true)
-    const closeModal = () => setShow(false)
 
     useEffect(() => {
         async function fetchProjects() {
@@ -21,7 +18,7 @@ export default function ProjectsList() {
         <div>
             <TableTitle>
                 <h3>Projects</h3>
-                <button onClick={openModal}>Add A Project</button>
+                <button onClick={() => history.push("/addproject")}>Add A Project</button>
             </TableTitle>
             <Table>
                 <thead>
@@ -43,8 +40,6 @@ export default function ProjectsList() {
 
                 </tbody>
             </Table>
-            {show && <AddProjectModal closeModal={closeModal} show={show} />}
-
         </div>
     )
 }
