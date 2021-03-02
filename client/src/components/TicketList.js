@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { useHistory } from "react-router-dom"
 import TicketDetails from "./TicketDetails"
-import CreateTicketModal from "./CreateTicketModal"
+
 
 export default function TicketList() {
     let history = useHistory()
 
-    const [runTickets, setRunTickets] = useState(false)
+
 
     const [tickets, updateTickets] = useState([])
     const [ticketIndex, updateticketIndex] = useState("0")
