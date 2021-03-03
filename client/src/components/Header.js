@@ -1,8 +1,14 @@
 import React from 'react';
+import { useHistory } from "react-router-dom"
 import styled from 'styled-components';
-import { FaSearch } from 'react-icons/fa';
+import { FaSearch, FaChevronDown } from 'react-icons/fa';
 
 export default function Header() {
+  let history = useHistory()
+  function logout() {
+    sessionStorage.clear()
+    history.push("/")
+  }
   return (
     <Main>
       <Nav>
@@ -15,7 +21,15 @@ export default function Header() {
             <input type="search" name="search" id="search" placeholder="Search..." />
           </SearchBar>
           <li>Notifications</li>
-          <li>User</li>
+          <div className="dropdown">
+            <button className="dropbtn">Users
+            <FaChevronDown style={{ paddingTop: '.35rem' }} />
+            </button>
+            <div className="dropdown-content">
+              <button onClick={() => history.push("/profile")}>User Profile</button>
+              <button onClick={() => logout()}>Log Out</button>
+            </div>
+          </div>
         </Right>
       </Nav>
     </Main>
@@ -48,11 +62,38 @@ h3{
 const Right = styled.ul`
 display: flex;
 align-items: center;
-margin-right: 2rem;
+margin-right: 6rem;
 
 li {
   padding: 0 1rem;
   color: white;
+}
+.dropdown{
+ 
+}
+.dropbtn {
+  background: #128DEB;
+  color: white;
+}
+.dropdown:hover .dropdown-content{
+  display: block;
+}
+.dropdown-content {
+  background: #A0D1F7;
+  display: none;
+  position: absolute;
+  min-width: 120px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.dropdown-content button {
+  background: #A0D1F7;
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
 }
 `;
 
