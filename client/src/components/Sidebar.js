@@ -8,7 +8,7 @@ export default function Sidebar() {
             <ul>
                 <li><SidebarLink to="/dashboard">Dashboard</SidebarLink></li>
                 <li><SidebarLink to="/projects">Projects</SidebarLink></li>
-                <li><SidebarLink to="/tickets">Tickets</SidebarLink></li>
+                <li><SidebarLink to="/tickets">My Tickets</SidebarLink></li>
                 {/* <li><SidebarLink to="/manageroles">Manage Roles</SidebarLink></li>
                 <li><SidebarLink to="/manageusers">Manage Users</SidebarLink></li> */}
             </ul>
