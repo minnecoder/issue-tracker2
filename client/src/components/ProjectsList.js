@@ -75,6 +75,7 @@ td{
 }
 tr{
     height: 2rem;
+    cursor: pointer;
 }
 
 `

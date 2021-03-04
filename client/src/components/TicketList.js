@@ -102,6 +102,9 @@ td:nth-child(1) {
 tr{
   height: 2rem;
 }
+tbody tr {
+    cursor: pointer;
+}
 `
 
 const TableTitle = styled.div`
