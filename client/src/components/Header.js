@@ -1,7 +1,7 @@
 import React from 'react';
 import { useHistory } from "react-router-dom"
 import styled from 'styled-components';
-import { FaSearch, FaChevronDown } from 'react-icons/fa';
+import { FaChevronDown } from 'react-icons/fa';
 
 export default function Header() {
   let history = useHistory()
@@ -98,19 +98,19 @@ li {
 }
 `;
 
-const SearchBar = styled.div`
-margin-left: 2rem;
-display: inline-flex;
-background: #128DEB;
-overflow: hidden;
-color: white;
-input {
-  border-style:hidden;
-  background: #128DEB;
-  width: 15rem;
-  color: white;
-}
-input: focus {
-  outline: none;
-}
-`;
+// const SearchBar = styled.div`
+// margin-left: 2rem;
+// display: inline-flex;
+// background: #128DEB;
+// overflow: hidden;
+// color: white;
+// input {
+//   border-style:hidden;
+//   background: #128DEB;
+//   width: 15rem;
+//   color: white;
+// }
+// input: focus {
+//   outline: none;
+// }
+// `;
