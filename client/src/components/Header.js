@@ -16,11 +16,11 @@ export default function Header() {
           <h3>Issue Tracker</h3>
         </Left>
         <Right>
-          <SearchBar>
+          {/* <SearchBar>
             <FaSearch style={{ paddingRight: '.25rem' }} />
             <input type="search" name="search" id="search" placeholder="Search..." />
           </SearchBar>
-          <li>Notifications</li>
+          <li>Notifications</li> */}
           <div className="dropdown">
             <button className="dropbtn">Users
             <FaChevronDown style={{ paddingTop: '.35rem' }} />
