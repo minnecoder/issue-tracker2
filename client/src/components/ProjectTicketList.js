@@ -7,11 +7,11 @@ import TicketDetails from "./TicketDetails"
 export default function ProjectTicketList() {
 
     let history = useHistory()
-    const passedData = history.location.state.data.tickets
+    const passedData = history.location.state.data
     const [tickets, updateTickets] = useState([])
     const [ticketIndex, updateticketIndex] = useState("0")
 
-    useEffect(() => updateTickets(passedData), [passedData])
+    useEffect(() => updateTickets(passedData.tickets), [passedData])
 
     const dateConverter = (dateTime) => {
         const date = dateTime.substr(0, 10).split("-")
@@ -23,7 +23,7 @@ export default function ProjectTicketList() {
         <Wrapper>
             < div >
                 <TableTitle>
-                    <h3>Tickets</h3>
+                    <h3>Tickets for {passedData.title}</h3>
                     <button onClick={() => { history.push("/createtickets") }}>Create A Ticket</button>
                 </TableTitle>
                 <Table>
