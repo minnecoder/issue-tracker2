@@ -5,6 +5,9 @@ const NotificationsSchema = new mongoose.Schema({
     ticket: { type: String },
     message: { type: String },
     user: { type: String },
-    viewed: { type: String },
+    viewed: {
+        type: Boolean,
+        default: false
+    },
 })
 module.exports = mongoose.model("Notifications", NotificationsSchema)
