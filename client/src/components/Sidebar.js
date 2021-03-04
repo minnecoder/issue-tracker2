@@ -33,5 +33,6 @@ justify-content: space-between;
 `;
 
 const SidebarLink = styled(Link)`
-color: black;
+color: white;
+font-weight:600;
 `;
