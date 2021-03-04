@@ -10,6 +10,7 @@ import Login from "./pages/Login"
 import Register from "./pages/Register"
 import CreateTicket from './pages/CreateTicket';
 import CreateProject from "./pages/CreateProject"
+import ProjectTicket from "./pages/ProjectTicket"
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/" exact component={Login} />
           <Route path="/createtickets" component={CreateTicket} />
           <Route path="/addproject" component={CreateProject} />
+          <Route path="/projectticket" component={ProjectTicket} />
           <Route path="/dashboard" component={Dashboard} />
           <Route path="/manageroles" component={ManageRoles} />
           <Route path="/manageusers" component={ManageUsers} />
