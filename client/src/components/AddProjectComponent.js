@@ -17,17 +17,18 @@ export default function AddProjectComponent() {
 
     async function handleSubmit(event) {
         event.preventDefault()
-        await fetch("api/v1/projects", {
-            method: "POST",
-            mode: "cors",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                title: state.title,
-                description: state.description
+        if (sessionStorage.getItem("demo") !== null) {
+            await fetch("api/v1/projects", {
+                method: "POST",
+                mode: "cors",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    title: state.title,
+                    description: state.description
+                })
             })
-        })
+        }
         history.push("/projects")
-
     }
 
     return (
