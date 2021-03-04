@@ -9,8 +9,8 @@ const Project = require("../models/Project")
 exports.getTickets = async (req, res) => {
     try {
         const tickets = await Ticket.find({})
-            .populate("ticketComment ticketHistory")
-            .exec()
+        // .populate("ticketComment ticketHistory")
+        // .exec()
 
         res.status(200).json({
             success: true,

@@ -3,17 +3,25 @@ import { useHistory } from "react-router-dom"
 import styled from "styled-components"
 
 export default function ProjectsList() {
+    let abortController = new AbortController()
     let history = useHistory()
     const [projects, updateProjects] = useState([])
 
+    async function fetchProjects() {
+
+        const response = await fetch("/api/v1/projects", { signal: abortController.signal })
+        const json = await response.json()
+        updateProjects(json.data)
+
+    }
+
     useEffect(() => {
-        async function fetchProjects() {
-            const response = await fetch("/api/v1/projects")
-            const json = await response.json()
-            updateProjects(json.data)
-        }
+        // let isMounted = true
         fetchProjects()
-    }, [projects])
+        return () => {
+            abortController.abort()
+        }
+    }, [])
     return (
         <div>
             <TableTitle>
@@ -31,7 +39,11 @@ export default function ProjectsList() {
                 </thead>
                 <tbody>
                     {projects.map((project) => (
-                        <tr>
+                        <tr key={project.title} onClick={() => history.push({
+                            pathname: "/projectticket",
+                            state: { data: project }
+                        })
+                        }>
                             <td>{project.title}</td>
                             <td>{project.description}</td>
                             <td>{project.tickets.length}</td>
@@ -40,8 +52,7 @@ export default function ProjectsList() {
 
                 </tbody>
             </Table>
-        </div>
-    )
+        </div>)
 }
 
 
