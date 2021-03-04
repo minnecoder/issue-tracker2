@@ -45,7 +45,7 @@ background: #128DEB;
 const Nav = styled.div`
 display: flex;
 justify-content: space-between;
-padding-top: 1.5rem;
+padding-top: 1rem;
 `;
 
 const Left = styled.div`
@@ -55,6 +55,7 @@ align-items: center;
 h3{
   padding: 0 2rem;
   color: white;
+  font-size: 2rem;
 }
 
 `;
