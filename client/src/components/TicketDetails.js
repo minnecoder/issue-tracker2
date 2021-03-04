@@ -56,19 +56,22 @@ export default function TicketDetails({ data, index }) {
     }
     // iterate through array of objects and send each item to API end point
     for (let i = 0; i < arr.length; i++) {
-      await fetch("/api/v1/tickethistory", {
-        method: "PUT",
-        mode: "cors",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          id: data._id,
-          user: arr[i].user,
-          propertyChanged: arr[i].propertyChanged,
-          property: arr[i].property,
-          oldValue: arr[i].oldValue,
-          newValue: arr[i].newValue
+      if (sessionStorage.getItem("demo") !== null) {
+        await fetch("/api/v1/tickethistory", {
+          method: "PUT",
+          mode: "cors",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            id: data._id,
+            user: arr[i].user,
+            propertyChanged: arr[i].propertyChanged,
+            property: arr[i].property,
+            oldValue: arr[i].oldValue,
+            newValue: arr[i].newValue
+          })
         })
-      })
+      }
+
     }
     // after complettion set isEdited to false
     setIsEdited(false)

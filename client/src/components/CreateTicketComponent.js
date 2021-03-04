@@ -37,20 +37,22 @@ export default function CreateTicket() {
         const firstName = sessionStorage.getItem("firstName")
         const lastName = sessionStorage.getItem("lastName")
         const fullName = `${firstName} ${lastName}`
-        await fetch("/api/v1/tickets", {
-            method: "POST",
-            mode: "cors",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                project: state.project,
-                title: state.title,
-                description: state.description,
-                assignedDev: fullName,
-                submitter: fullName,
-                ticketPriority: state.ticketPriority,
-                ticketType: state.ticketType
+        if (sessionStorage.getItem("demo") !== null) {
+            await fetch("/api/v1/tickets", {
+                method: "POST",
+                mode: "cors",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    project: state.project,
+                    title: state.title,
+                    description: state.description,
+                    assignedDev: fullName,
+                    submitter: fullName,
+                    ticketPriority: state.ticketPriority,
+                    ticketType: state.ticketType
+                })
             })
-        })
+        }
         history.push("/tickets")
     }
 
