@@ -6,7 +6,9 @@ import TicketDetails from "./TicketDetails"
 
 export default function TicketList() {
     let history = useHistory()
-
+    const firstName = sessionStorage.getItem("firstName")
+    const lastName = sessionStorage.getItem("lastName")
+    const fullName = `${firstName} ${lastName}`
 
 
     const [tickets, updateTickets] = useState([])
@@ -34,7 +36,7 @@ export default function TicketList() {
         <Wrapper>
             < div >
                 <TableTitle>
-                    <h3>Tickets</h3>
+                    <h3>Tickets for {fullName}</h3>
                     <button onClick={() => { history.push("/createtickets") }}>Create A Ticket</button>
                 </TableTitle>
                 <Table>
