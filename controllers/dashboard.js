@@ -7,7 +7,7 @@ const Ticket = require("../models/Ticket")
 exports.getDashboardInfo = async (req, res) => {
     try {
         const tickets = await Ticket.find()
-        const projects = await Project.find().limit(5).sort({ tickets: -1 }).select({ title: 1, tickets: 1 })
+        const projects = await Project.find().limit(10).sort({ tickets: -1 }).select({ title: 1, tickets: 1 })
         const projectNum = projects.length
         // sort projects by number of tickets in project
         projects.sort((a, b) => {
