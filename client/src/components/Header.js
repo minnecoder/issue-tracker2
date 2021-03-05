@@ -26,7 +26,6 @@ export default function Header() {
             <FaChevronDown style={{ paddingTop: '.35rem' }} />
             </button>
             <div className="dropdown-content">
-              <button onClick={() => history.push("/profile")}>User Profile</button>
               <button onClick={() => logout()}>Log Out</button>
             </div>
           </div>
