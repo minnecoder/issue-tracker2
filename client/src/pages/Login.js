@@ -18,6 +18,13 @@ export default function Login() {
         event.preventDefault()
     }
 
+    function demoLogin() {
+        sessionStorage.setItem("firstName", "Demo")
+        sessionStorage.setItem("lastName", "User")
+        sessionStorage.setItem("demo", "true")
+        history.push("/tickets")
+    }
+
     async function handleSubmit(event) {
         event.preventDefault()
         const response = await fetch("/api/v1/users/login", {
@@ -68,12 +75,12 @@ export default function Login() {
 
                 <input type="submit" value="Submit" />
                 <div className="loginLinks">
-                    <p>
-                        Don't have an account?<Link to="/register"> Register User</Link>
-                    </p>
-                    <p>
-                        Login as a Demo User <Link to="/demo"> Click Here</Link>
-                    </p>
+                    <button onClick={() => { history.push("/register") }}>
+                        Register User
+                    </button>
+                    <button onClick={() => demoLogin()}>
+                        Login as a Demo User
+                    </button>
                 </div>
             </LoginForm>
         </LoginWrapper>
@@ -100,7 +107,8 @@ const LoginForm = styled.form`
     background: white;
     width: 30rem;
     padding: 2rem 0;
- 
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    border-radius: 5px;
   
   h1{
     text-align: center;
@@ -124,12 +132,22 @@ const LoginForm = styled.form`
     width: 5rem;
     background: #eb7012;
     color: white;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   }
   .loginLinks {
+      display: flex;
+      flex-direction: column;
       padding: .5rem 0;
   }
-  .loginLinks p {
-      padding: .25rem 0;
+  .loginLinks button {
+      background: #128DEB;
+margin: .5rem;
+      padding: 1rem;
+      color: white;
+      border-radius: 5px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   }
 `;
 
