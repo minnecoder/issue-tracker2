@@ -21,6 +21,6 @@ JWT_SECRET=[string of text]
 ```
 `NODE_ENV` should be set to `development` during development and `production` when ready to deploy the app
 
-##Running the app
+## Running the app
 While doing development run the command `npm run dev` to start the front and back end of the application
 
