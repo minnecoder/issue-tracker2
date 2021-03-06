@@ -30,6 +30,18 @@ li {
 padding: 1rem 0;
 justify-content: space-between;
 }
+@media (max-width: 800px) {
+    height: 3rem;
+    width: 100%;
+    ul {
+        display: flex;
+        justify-content: space-around;
+    }
+    li {
+padding: 1rem 0;
+
+}
+}
 `;
 
 const SidebarLink = styled(Link)`

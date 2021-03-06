@@ -66,7 +66,9 @@ const Wrapper = styled.div`
     grid-template-areas: 
     "projects row1"
     "projects row2";
-    width: 80vw;
+    width:90%;
+
+   
 
 .projects{
     grid-area: projects;
@@ -75,6 +77,11 @@ const Wrapper = styled.div`
     border-radius: 10px;
     background: #128DEB;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+
+    @media (max-width: 800px) {
+         width: 90%;
+        }
+
     p{
         font-size: 2rem;
         font-weight: bold;
@@ -95,40 +102,59 @@ const Wrapper = styled.div`
     grid-area: row1;
     display: flex;
     justify-content: space-between;
-    ${'' /* margin: 1rem; */}
     margin: 5rem 1rem 1rem 1rem;
     width: 90%;
-    ${'' /* justify-content: center; */}
+    @media (max-width: 800px) {
+     flex-direction: column;
+     margin: 1rem;  
     }
+    }
+
+    
 .row2 {
     grid-area: row2;
     display: flex;
     justify-content: space-between;
-    ${'' /* margin: 1rem; */}
-    margin: 1rem 1rem 1rem 1rem;
+    margin: 1rem;
     width: 90%;
-    ${'' /* justify-content: center; */}
+    @media (max-width: 800px) {
+     flex-direction: column;
+    }
 }
 
 .dashboardItem{
     width: 22vw;
     height: 26vh;
     margin: 0 1rem;
-    ${'' /* padding: 2rem; */}
     background: #128DEB;
     border-radius: 10px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+
+@media (max-width:800px) {
+    width: 100%;
+    height: auto;
+    padding: 1rem 0;
+}
+
     p{
         color: white;
         font-size: 1.5rem;
         text-align: center;
         padding-top: 1rem;
+        @media (max-width: 800px) {
+            font-size: 1rem;
+            padding: 0;
+        }
     }
     h1{
         text-align: center;
         color: white;
         font-size: 6rem;
         padding-top: 1rem;
+        @media (max-width: 800px) {
+            font-size: 1rem;
+            padding: 0;
+        }
     }
 }
-` 
+`

@@ -25,4 +25,12 @@ grid-template-areas:
 "sidebar dashboard dashboard";
 grid-gap: 0;
 background: white;
+
+@media (max-width: 800px) {
+ grid-template-columns: 1fr;
+ grid-template-areas:
+"header"
+"sidebar"
+"dashboard";
+}
 `;

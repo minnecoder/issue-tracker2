@@ -55,6 +55,10 @@ h3{
   padding: 0 2rem;
   color: white;
   font-size: 2rem;
+  @media (max-width: 800px) {
+    padding-top: .5rem;
+    font-size: 1rem;
+  }
 }
 
 `;

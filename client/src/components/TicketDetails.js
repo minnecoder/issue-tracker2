@@ -128,7 +128,7 @@ export default function TicketDetails({ data, index }) {
           </div>
 
           {isEdited ?
-            <div>
+            <div className="edit-ticket">
               <section className="infoItem">
                 <p>Type</p>
                 <select
@@ -231,9 +231,9 @@ border-left: 1px solid #ccc;
 .description{
   padding-top: .5rem;
 }
-.infoItem{
-  ${'' /* margin: .5rem 0; */}
+ .infoItem{
   padding: .5rem;
+
   
  p:nth-child(1) {
    text-transform: uppercase;
@@ -276,7 +276,9 @@ border-left: 1px solid #ccc;
   flex-direction: column;
   width: 40rem;
   margin: 0 1rem ;
-
+@media (max-width: 800px) {
+  width: 20rem;
+}
 input[type=text] {
   
   height: 5rem;
@@ -295,5 +297,19 @@ button {
   color: white;
   border-radius: 5px;
 }
+.edit-ticket {
+  @media (max-width: 800px) {
+    width: 200px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+}
+.edit-ticket section {
+    ${'' /* display: flex;
+    flex-direction: column; */}
+    background: red;
+
+  }
 }
 `

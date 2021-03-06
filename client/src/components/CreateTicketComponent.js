@@ -140,6 +140,10 @@ form{
     display: flex;
     flex-direction: column;
     align-items: center;
+    @media (max-width:800px) {
+    margin: 1rem;
+
+    }
 }
 
 h1 {
@@ -148,6 +152,11 @@ h1 {
     padding:  .5rem 0;
     margin-top: .5rem;
     color: white;
+    @media (max-width: 650px) {
+        font-size: 1.5rem;
+        text-align:left;
+        margin-left: 1rem;
+    }
 }
 label{
     color: white;
@@ -173,7 +182,6 @@ select{
     border-radius: 5px;
 }
 .closeBtn{
-    ${'' /* border: 1px solid #EB7012; */}
     background: #EB7012;
     border-radius: 5px;
     padding: 1rem;
@@ -182,5 +190,9 @@ select{
     top: 10px;
     right: 15px;
     color: white;
+    @media (max-width: 800px) {
+        top: 2px;
+        right: 2px;
+    }
 }
 `

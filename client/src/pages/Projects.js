@@ -6,13 +6,11 @@ import ProjectsList from "../components/ProjectsList"
 
 export default function Projects() {
   return (
-    <div>
-      <Main>
-        <Header />
-        <Sidebar />
-        <ProjectsList />
-      </Main>
-    </div>
+    <Main>
+      <Header />
+      <Sidebar />
+      <ProjectsList />
+    </Main>
   );
 }
 
@@ -25,4 +23,13 @@ grid-template-areas:
 "sidebar projectarea projectarea";
 grid-gap: 0;
 background: white;
+
+@media (max-width: 800px) {
+ grid-template-columns: 1fr;
+ grid-template-areas:
+"header"
+"sidebar"
+"projectarea";
+}
+
 `;

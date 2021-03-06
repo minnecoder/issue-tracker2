@@ -62,6 +62,10 @@ background: white;
 border-collapse: collapse;
 width: calc(100vw - 220px);
 
+@media (max-width: 800px) {
+    width: 100vw;
+}
+
 thead th {
     padding: 1rem;
     text-align: left;

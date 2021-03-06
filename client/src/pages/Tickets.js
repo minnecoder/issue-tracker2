@@ -24,4 +24,15 @@ grid-template-areas:
 "header header header"
 "sidebar ticketarea ticketarea";
 grid-gap: 0;
+
+@media (max-width: 800px) {
+  display: grid;
+ grid-template-columns: 1fr;
+ grid-template-rows: 1fr;
+ grid-template-areas:
+"header"
+"sidebar"
+"ticketarea";
+}
+
 `;

@@ -65,6 +65,9 @@ width: 80%;
 height: 80%;
 background:#128DEB;
 border-radius: 10px;
+@media (max-width:800px) {
+    height: auto;
+}
 
 form{
     display: flex;

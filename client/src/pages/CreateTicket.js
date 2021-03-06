@@ -25,4 +25,12 @@ grid-template-areas:
 "sidebar projectarea projectarea";
 grid-gap: 0;
 background: white;
+
+@media (max-width: 1050px) {
+ grid-template-columns: 1fr;
+ grid-template-areas:
+"header"
+"sidebar"
+"projectarea";
+}
 `;
