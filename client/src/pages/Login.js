@@ -57,23 +57,28 @@ export default function Login() {
             <LoginForm onSubmit={handleSubmit}>
                 <h1>Issue Tracker</h1>
                 <h4>{state.error}</h4>
-                <input
-                    name="email"
-                    type="text"
-                    placeholder="Email"
-                    value={state.email}
-                    onChange={handleChange}
-                />
+                <div className="inputGroup">
 
-                <input
-                    name="password"
-                    type="password"
-                    placeholder="Password"
-                    value={state.password}
-                    onChange={handleChange}
-                />
+                    <label htmlFor="email">Email</label>
+                    <input
+                        name="email"
+                        type="text"
+                        value={state.email}
+                        onChange={handleChange}
+                    />
+                </div>
+                <div className="inputGroup">
 
-                <input type="submit" value="Submit" />
+                    <label htmlFor="password">Password</label>
+                    <input
+                        name="password"
+                        type="password"
+                        value={state.password}
+                        onChange={handleChange}
+                    />
+                </div>
+
+                <input type="submit" value="Login" />
                 <div className="loginLinks">
                     <button onClick={() => { history.push("/register") }}>
                         Register User
@@ -101,7 +106,6 @@ const LoginForm = styled.form`
     margin-right: auto;
     left: 0;
     right: 0;
-    align-items: center;
     display: flex;
     flex-direction: column;
     background: white;
@@ -117,37 +121,42 @@ const LoginForm = styled.form`
   }
 
   h4{
-      color: red;
+    color: red;
   }
-  
+  .inputGroup{
+    display: flex;
+    flex-direction: column;
+    margin: .5rem 0;
+  }
+  label{
+    margin-left: .75rem;
+  }
   input {
-    width: 20rem;
-    margin: 0.5rem 0;
-    padding: 1rem 0;
-    text-align: center;
-  border: 1px solid black;
+    margin: .25rem .75rem;
+    padding: .5rem;
+    border-radius: 3px;
+    border: 1px solid black;
   }
   input[type="submit"] {
-      margin-top: .75rem;
-    width: 5rem;
+    margin-top: .75rem;
     background: #eb7012;
     color: white;
-    border-radius: 5px;
+    border-radius: 3px;
     border: none;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   }
   .loginLinks {
-      display: flex;
-      flex-direction: column;
-      padding: .5rem 0;
+    display: flex;
+    flex-direction: column;
+    padding: .5rem 0;
   }
   .loginLinks button {
-      background: #128DEB;
-margin: .5rem;
-      padding: 1rem;
-      color: white;
-      border-radius: 5px;
-      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    background: #128DEB;
+    margin: .5rem;
+    padding: 1rem;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   }
 `;
 

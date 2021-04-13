@@ -61,38 +61,44 @@ export default function Login() {
             <LoginForm onSubmit={handleSubmit}>
                 <h1>Delivery Notes</h1>
                 <h4>{state.error}</h4>
-                <input
-                    name="firstName"
-                    type="text"
-                    placeholder="First Name"
-                    value={state.firstName}
-                    onChange={handleChange}
-                />
-                <input
-                    name="lastName"
-                    type="text"
-                    placeholder="Last Name"
-                    value={state.lastName}
-                    onChange={handleChange}
-                />
+                <div className="inputGroup">
+                    <label htmlFor="firstName">First Name</label>
+                    <input
+                        name="firstName"
+                        type="text"
+                        value={state.firstName}
+                        onChange={handleChange}
+                    />
+                </div>
+                <div className="inputGroup">
+                    <label htmlFor="lastName">Last Name</label>
+                    <input
+                        name="lastName"
+                        type="text"
+                        value={state.lastName}
+                        onChange={handleChange}
+                    />
+                </div>
+                <div className="inputGroup">
+                    <label htmlFor="email">Email</label>
+                    <input
+                        name="email"
+                        type="text"
+                        value={state.email}
+                        onChange={handleChange}
+                    />
+                </div>
+                <div className="inputGroup">
+                    <label htmlFor="password">Password</label>
+                    <input
+                        name="password"
+                        type="password"
+                        value={state.password}
+                        onChange={handleChange}
+                    />
+                </div>
 
-                <input
-                    name="email"
-                    type="text"
-                    placeholder="Email"
-                    value={state.email}
-                    onChange={handleChange}
-                />
-
-                <input
-                    name="password"
-                    type="password"
-                    placeholder="Password"
-                    value={state.password}
-                    onChange={handleChange}
-                />
-
-                <input type="submit" value="Submit" onClick={handleSubmit} />
+                <input type="submit" value="Register User" onClick={handleSubmit} />
 
             </LoginForm>
         </LoginWrapper>
@@ -113,7 +119,6 @@ const LoginForm = styled.form`
     margin-right: auto;
     left: 0;
     right: 0;
-    align-items: center;
     display: flex;
     flex-direction: column;
     background: white;
@@ -130,20 +135,27 @@ const LoginForm = styled.form`
   h4{
       color: red;
   }
-  
+  .inputGroup{
+    display: flex;
+    flex-direction: column;
+    margin: .5rem 0;
+  }
+  label{
+    margin-left: .75rem;
+  }
   input {
-    width: 20rem;
-    margin: 0.5rem 0;
-    padding: 1rem 0;
-    text-align: center;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    margin: .25rem .75rem;
+    padding: .5rem;
+    border-radius: 3px;
+    border: 1px solid black;
   }
   input[type="submit"] {
-      margin-top: .75rem;
-    width: 5rem;
+    margin-top: .75rem;
     background: #eb7012;
     color: white;
+    border-radius: 3px;
+    border: none;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   }
  
 `;
