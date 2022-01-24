@@ -1,4 +1,4 @@
-const mongoose = require("mongoose")
+import { Mongoose } from "mongoose"
 
 const TicketSchema = new mongoose.Schema({
     title: {

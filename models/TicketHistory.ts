@@ -1,4 +1,4 @@
-mongoose = require("mongoose")
+import mongoose from 'mongoose'
 
 const TicketHistorySchema = new mongoose.Schema({
     user: String,

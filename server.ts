@@ -1,9 +1,11 @@
-const path = require("path")
-const express = require("express")
-const cors = require("cors")
-const dotenv = require("dotenv")
-const bodyParser = require("body-parser")
-const connectDB = require("./config/db")
+import path from 'path'
+import express from 'express'
+import cors from 'cors'
+import dotenv from 'dotenv'
+import bodyParser from 'body-parser'
+import { Request, Response } from 'express'
+// @ts-ignore
+import connectDB from './config/db.js'
 
 const app = express()
 
@@ -34,7 +36,7 @@ app.use("/api/v1/dashboard", dashboard)
 
 if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
-    app.get("*", (req, res) => res.sendFile(path.resolve(__dirname, "./client/build/index.html")))
+    app.get("*", (req: Request, res: Response) => res.sendFile(path.resolve(__dirname, "./client/build/index.html")))
 }
 
 const PORT = process.env.PORT || 4000

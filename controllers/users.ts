@@ -1,3 +1,4 @@
+import { Request, Response } from "express";
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const User = require("../models/User");
@@ -6,7 +7,7 @@ const User = require("../models/User");
 // @route /user/add
 // @access Verified User
 
-exports.addUser = async (req, res) => {
+exports.addUser = async (req: Request, res: Response) => {
     // Check if user is already used
     const userExists = await User.findOne({ email: req.body.email });
     if (userExists)
@@ -38,7 +39,7 @@ exports.addUser = async (req, res) => {
 // @route POST /user/login
 // @access Driver, Admin
 
-exports.loginUser = async (req, res) => {
+exports.loginUser = async (req: Request, res: Response) => {
     // Check if user exists
     const user = await User.findOne({ email: req.body.email });
     if (!user) {

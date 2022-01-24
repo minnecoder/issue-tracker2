@@ -1,9 +1,10 @@
+import { Request, Response } from "express"
 const Project = require("../models/Project")
 
 // @ desc Get all projects
 // @route GET /projects
 // @access Public
-exports.getProjects = async (req, res) => {
+exports.getProjects = async (req: Request, res: Response) => {
     try {
         const projects = await Project.find()
             .populate({
@@ -15,7 +16,7 @@ exports.getProjects = async (req, res) => {
             })
             .exec()
 
-        res.status(200).json({
+        return res.status(200).json({
             success: true,
             count: projects.length,
             data: projects
@@ -29,13 +30,13 @@ exports.getProjects = async (req, res) => {
 // @ desc Get all projects
 // @route GET /projects
 // @access Public
-exports.getSingleProject = async (req, res) => {
+exports.getSingleProject = async (req: Request, res: Response) => {
     try {
         const project = await Project.findById({ id: req.params.addTicketId })
             .populate("tickets")
             .exec()
 
-        res.status(200).json({
+        return res.status(200).json({
             success: true,
             data: project
         })
@@ -50,7 +51,7 @@ exports.getSingleProject = async (req, res) => {
 // @desc  Add project
 // @route POST /projects
 // @access Public
-exports.addProject = async (req, res) => {
+exports.addProject = async (req: Request, res: Response) => {
     try {
         const project = await Project.create(req.body);
 
@@ -67,7 +68,7 @@ exports.addProject = async (req, res) => {
 // @desc Update project
 // @route PUT /projects/:id
 // @access
-exports.updateProject = async (req, res) => {
+exports.updateProject = async (req: Request, res: Response) => {
     try {
         const project = await Project.findById(req.params.id).exec();
         project.set(req.body);
@@ -85,7 +86,7 @@ exports.updateProject = async (req, res) => {
 // @desc Delete project
 // @route DELETE /projects/:id
 // @access
-exports.deleteProject = async (req, res) => {
+exports.deleteProject = async (req: Request, res: Response) => {
     try {
         const project = await Project.findById(req.params.id);
 
@@ -109,7 +110,7 @@ exports.deleteProject = async (req, res) => {
 // @desc Add ticket id to project
 // @route PUT /projects
 // @access
-exports.addTicketId = async (req, res) => {
+exports.addTicketId = async (req: Request, res: Response) => {
     try {
         const project = await Project.findById(req.body.id)
         if (!project) {
@@ -131,12 +132,12 @@ exports.addTicketId = async (req, res) => {
     }
 }
 
-exports.getProjectsDropDown = async (req, res) => {
+exports.getProjectsDropDown = async (req: Request, res: Response) => {
     try {
         const projects = await Project.find().select("title")
 
 
-        res.status(200).json({
+        return res.status(200).json({
             success: true,
             count: projects.length,
             data: projects

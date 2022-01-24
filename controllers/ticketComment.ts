@@ -1,13 +1,14 @@
+import { Request, Response } from "express"
 const TicketComment = require("../models/TicketComment")
 
 // @ desc Get all ticketComments
 // @route GET /ticketComments
 // @access Public
-exports.getTicketComments = async (req, res) => {
+exports.getTicketComments = async (req: Request, res: Response) => {
     try {
         const ticketComments = await TicketComment.find()
 
-        res.status(200).json({
+        return res.status(200).json({
             success: true,
             count: ticketComments.length,
             data: ticketComments
@@ -21,11 +22,11 @@ exports.getTicketComments = async (req, res) => {
 // @ desc Get all ticketComments
 // @route GET /ticketComments
 // @access Public
-exports.getSingleTicketComment = async (req, res) => {
+exports.getSingleTicketComment = async (req: Request, res: Response) => {
     try {
         const ticketComment = await TicketComment.findById({ id: req.params.addTicketId })
 
-        res.status(200).json({
+        return res.status(200).json({
             success: true,
             data: ticketComment
         })
@@ -40,7 +41,7 @@ exports.getSingleTicketComment = async (req, res) => {
 // @desc  Add ticketComment
 // @route POST /ticketComments
 // @access Public
-exports.addTicketComment = async (req, res) => {
+exports.addTicketComment = async (req: Request, res: Response) => {
     try {
         const ticketComment = await TicketComment.create(req.body);
 
@@ -57,7 +58,7 @@ exports.addTicketComment = async (req, res) => {
 // @desc Update ticketComment
 // @route PUT /ticketComments/:id
 // @access
-exports.updateTicketComment = async (req, res) => {
+exports.updateTicketComment = async (req: Request, res: Response) => {
     try {
         const ticketComment = await TicketComment.findById(req.params.id).exec();
         ticketComment.set(req.body);
@@ -75,7 +76,7 @@ exports.updateTicketComment = async (req, res) => {
 // @desc Delete ticketComment
 // @route DELETE /ticketComments/:id
 // @access
-exports.deleteTicketComment = async (req, res) => {
+exports.deleteTicketComment = async (req: Request, res: Response) => {
     try {
         const ticketComment = await TicketComment.findById(req.params.id);
 
@@ -99,7 +100,7 @@ exports.deleteTicketComment = async (req, res) => {
 // @desc Add ticket id to ticketComment
 // @route PUT /ticketComments
 // @access
-exports.addTicketId = async (req, res) => {
+exports.addTicketId = async (req: Request, res: Response) => {
     try {
         const ticketComment = await TicketComment.findById(req.body.id)
         if (!ticketComment) {

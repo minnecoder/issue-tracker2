@@ -1,13 +1,14 @@
+import { Request, Response } from "express"
 const TicketHistory = require("../models/TicketHistory")
 
 // @ desc Get all ticketHistorys
 // @route GET /ticketHistorys
 // @access Public
-exports.getTicketHistorys = async (req, res) => {
+exports.getTicketHistorys = async (req: Request, res: Response) => {
     try {
         const ticketHistorys = await TicketHistory.find()
 
-        res.status(200).json({
+        return res.status(200).json({
             success: true,
             count: ticketHistorys.length,
             data: ticketHistorys
@@ -21,11 +22,11 @@ exports.getTicketHistorys = async (req, res) => {
 // @ desc Get all ticketHistorys
 // @route GET /ticketHistorys
 // @access Public
-exports.getSingleTicketHistory = async (req, res) => {
+exports.getSingleTicketHistory = async (req: Request, res: Response) => {
     try {
         const ticketHistory = await TicketHistory.findById({ id: req.params.addTicketId })
 
-        res.status(200).json({
+        return res.status(200).json({
             success: true,
             data: ticketHistory
         })
@@ -40,7 +41,7 @@ exports.getSingleTicketHistory = async (req, res) => {
 // @desc  Add ticketHistory
 // @route POST /ticketHistorys
 // @access Public
-exports.addTicketHistory = async (req, res) => {
+exports.addTicketHistory = async (req: Request, res: Response) => {
     try {
         const ticketHistory = await TicketHistory.create(req.body);
 
@@ -57,7 +58,7 @@ exports.addTicketHistory = async (req, res) => {
 // @desc Update ticketHistory
 // @route PUT /ticketHistorys/:id
 // @access
-exports.updateTicketHistory = async (req, res) => {
+exports.updateTicketHistory = async (req: Request, res: Response) => {
     try {
         const ticketHistory = await TicketHistory.findById(req.params.id).exec();
         ticketHistory.set(req.body);
@@ -75,7 +76,7 @@ exports.updateTicketHistory = async (req, res) => {
 // @desc Delete ticketHistory
 // @route DELETE /ticketHistorys/:id
 // @access
-exports.deleteTicketHistory = async (req, res) => {
+exports.deleteTicketHistory = async (req: Request, res: Response) => {
     try {
         const ticketHistory = await TicketHistory.findById(req.params.id);
 
@@ -99,7 +100,7 @@ exports.deleteTicketHistory = async (req, res) => {
 // @desc Add ticket id to ticketHistory
 // @route PUT /ticketHistorys
 // @access
-exports.addTicketId = async (req, res) => {
+exports.addTicketId = async (req: Request, res: Response) => {
     try {
         const ticketHistory = await TicketHistory.findById(req.body.id)
         if (!ticketHistory) {

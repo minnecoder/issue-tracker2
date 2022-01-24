@@ -1,3 +1,4 @@
+import { Request, Response } from "express"
 const Ticket = require("../models/Ticket")
 const Project = require("../models/Project")
 
@@ -6,13 +7,13 @@ const Project = require("../models/Project")
 // @ desc Get all tickets
 // @route GET /tickets
 // @access Public
-exports.getTickets = async (req, res) => {
+exports.getTickets = async (req: Request, res: Response) => {
     try {
         const tickets = await Ticket.find({})
         // .populate("ticketComment ticketHistory")
         // .exec()
 
-        res.status(200).json({
+        return res.status(200).json({
             success: true,
             count: tickets.length,
             data: tickets
@@ -26,11 +27,11 @@ exports.getTickets = async (req, res) => {
 // @desc Get tickets by assigned dev
 // @route GET /tickets/:name
 // @access Public
-exports.getTicketsAssignedDev = async (req, res) => {
+exports.getTicketsAssignedDev = async (req: Request, res: Response) => {
     var assignedDev = req.params.assignedDev
     try {
         const tickets = await Ticket.find({ assignedDev: assignedDev })
-        res.status(200).json({
+        return res.status(200).json({
             success: true,
             data: tickets
         })
@@ -43,14 +44,14 @@ exports.getTicketsAssignedDev = async (req, res) => {
 // @ desc Get single ticket
 // @route GET /tickets/:id
 // @access Public
-exports.getSingleTicket = async (req, res) => {
+exports.getSingleTicket = async (req: Request, res: Response) => {
     try {
         const ticket = await Ticket.findOne({ _id: req.params.id })
         await ticket.populate("ticketHistory").execPopulate()
         // .populate("ticketComment ticketHistory")
         // .exec()
 
-        res.status(200).json({
+        return res.status(200).json({
             success: true,
             // count: tickets.length,
             data: ticket
@@ -64,7 +65,7 @@ exports.getSingleTicket = async (req, res) => {
 // @desc  Add ticket and add ticket ID 
 // @route POST /tickets
 // @access Public
-exports.addTicket = async (req, res) => {
+exports.addTicket = async (req: Request, res: Response) => {
 
     try {
         // create ticket with data from body
@@ -91,7 +92,7 @@ exports.addTicket = async (req, res) => {
 // @desc Update ticket
 // @route PUT /tickets/:id
 // @access
-exports.updateTicket = async (req, res) => {
+exports.updateTicket = async (req: Request, res: Response) => {
     try {
         const ticket = await Ticket.findById(req.params.id).exec();
         ticket.set(req.body);
@@ -109,7 +110,7 @@ exports.updateTicket = async (req, res) => {
 // @desc Delete ticket
 // @route DELETE /tickets/:id
 // @access
-exports.deleteTicket = async (req, res) => {
+exports.deleteTicket = async (req: Request, res: Response) => {
     try {
         const ticket = await Ticket.findById(req.params.id);
 
@@ -133,7 +134,7 @@ exports.deleteTicket = async (req, res) => {
 // @desc Add ticketComment to ticket
 // @route PUT /tickets/comment
 // @access
-exports.addTicketCommentToTicket = async (req, res) => {
+exports.addTicketCommentToTicket = async (req: Request, res: Response) => {
     try {
         const ticket = await Ticket.findById(req.body.id)
         if (!ticket) {
@@ -158,7 +159,7 @@ exports.addTicketCommentToTicket = async (req, res) => {
 // @desc Add ticketHistory to ticket
 // @route PUT /tickets/history
 // @access
-exports.addTicketHistoryToTicket = async (req, res) => {
+exports.addTicketHistoryToTicket = async (req: Request, res: Response) => {
     try {
         const ticket = await Ticket.findById(req.body.id)
         if (!ticket) {

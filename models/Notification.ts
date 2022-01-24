@@ -1,4 +1,4 @@
-const mongoose = require("mongoose")
+import mongoose from 'mongoose'
 
 const NotificationsSchema = new mongoose.Schema({
     project: { type: String },
