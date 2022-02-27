@@ -4,7 +4,7 @@ import cors from 'cors'
 import dotenv from 'dotenv'
 import bodyParser from 'body-parser'
 import { Request, Response } from 'express'
-import { connectDB } from './config/db.js'
+import connectDB from './config/db.js'
 
 const app = express()
 
