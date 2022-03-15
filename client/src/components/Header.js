@@ -23,7 +23,7 @@ export default function Header() {
           <li>Notifications</li> */}
           <div className="dropdown">
             <button className="dropbtn">Users
-            <FaChevronDown style={{ paddingTop: '.35rem' }} />
+              <FaChevronDown style={{ paddingTop: '.35rem' }} />
             </button>
             <div className="dropdown-content">
               <button onClick={() => logout()}>Log Out</button>
@@ -38,7 +38,7 @@ export default function Header() {
 const Main = styled.div`
 grid-area: header;
 height: 65px;
-background: #128DEB;
+background: #372952;
 `;
 
 const Nav = styled.div`
