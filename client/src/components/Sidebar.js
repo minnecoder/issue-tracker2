@@ -9,15 +9,21 @@ export default function Sidebar() {
         <Main>
             <ul>
                 <li>
-                    <AiOutlineDashboard style={{ color: "white", fontSize: "2rem" }} />
-                    <SidebarLink to="/dashboard">Dashboard</SidebarLink></li>
+                    <SidebarLink to="/dashboard">
+                        <AiOutlineDashboard style={{ color: "white", fontSize: "2rem" }} />
+                        Dashboard
+                    </SidebarLink></li>
                 <li>
-                    <AiOutlineProject style={{ color: "white", fontSize: "2rem" }} />
-                    <SidebarLink to="/projects">Projects</SidebarLink>
+                    <SidebarLink to="/projects">
+                        <AiOutlineProject style={{ color: "white", fontSize: "2rem" }} />
+                        Projects
+                    </SidebarLink>
                 </li>
                 <li>
-                    <IoTicketOutline style={{ color: "white", fontSize: "2rem" }} />
-                    <SidebarLink to="/tickets">My Tickets</SidebarLink></li>
+                    <SidebarLink to="/tickets">
+                        <IoTicketOutline style={{ color: "white", fontSize: "2rem" }} />
+                        My Tickets
+                    </SidebarLink></li>
                 {/* <li><SidebarLink to="/manageroles">Manage Roles</SidebarLink></li>
                 <li><SidebarLink to="/manageusers">Manage Users</SidebarLink></li> */}
             </ul>
@@ -35,13 +41,7 @@ ul {
     margin-left: 1rem;
    height: 100%
 }
-li {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-padding: 1rem 0;
-justify-content: space-between;
-}
+
 @media (max-width: 800px) {
     height: 3rem;
     width: 100%;
@@ -59,4 +59,9 @@ padding: 1rem 0;
 const SidebarLink = styled(Link)`
 color: white;
 font-weight:600;
+display: flex;
+    flex-direction: column;
+    align-items: center;
+padding: 1rem 0;
+justify-content: space-between;
 `;
