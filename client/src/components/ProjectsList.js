@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { useHistory } from "react-router-dom"
-import styled from "styled-components"
+import { useHistory } from 'react-router-dom'
+import styled from 'styled-components'
 
-export default function ProjectsList() {
+export default function ProjectList2() {
     let abortController = new AbortController()
     let history = useHistory()
     const [projects, updateProjects] = useState([])
@@ -22,79 +22,91 @@ export default function ProjectsList() {
             abortController.abort()
         }
     }, [])
+
     return (
-        <div>
-            <TableTitle>
-                <h3>Projects</h3>
+        <Main>
+            <Title>
+                <h2>Projects</h2>
                 <button onClick={() => history.push("/addproject")}>Add A Project</button>
-            </TableTitle>
-            <Table>
-                <thead>
-                    <tr>
-                        <th>Title</th>
-                        <th>Description</th>
-                        <th># of Tickets</th>
-
-                    </tr>
-                </thead>
-                <tbody>
-                    {projects.map((project) => (
-                        <tr key={project.title} onClick={() => history.push({
-                            pathname: "/projectticket",
-                            state: { data: project }
-                        })
-                        }>
-                            <td>{project.title}</td>
-                            <td>{project.description}</td>
-                            <td>{project.tickets.length}</td>
-                        </tr>
-                    ))}
-
-                </tbody>
-            </Table>
-        </div>)
+            </Title>
+            <DataTitles>
+                <p>Title</p>
+                <p>Description</p>
+                <p># of Tickets</p>
+            </DataTitles>
+            <DataItems>
+                {projects.map((project) => (
+                    <DataItem key={project.title} onClick={() => history.push({
+                        pathname: "/projectticket",
+                        state: { data: project }
+                    })
+                    }>
+                        <p>{project.title}</p>
+                        <p>{project.description}</p>
+                        <p>{project.tickets.length}</p>
+                    </DataItem>
+                ))}
+            </DataItems>
+        </Main>
+    )
 }
 
-
-const Table = styled.table`
-grid-area: projectarea;
-background: white;
-border-collapse: collapse;
-width: calc(100vw - 220px);
-
-@media (max-width: 800px) {
-    width: 100vw;
-}
-
-thead th {
-    padding: 1rem;
-    text-align: left;
-    border-bottom: solid 1px #F8F8F8;
-    background: #e7f3fd;
-}
-td{
-  padding: 1rem;
-  text-align: left;
-  border-bottom: solid 1px #EEE;
-}
-tr{
-    height: 2rem;
-    cursor: pointer;
-}
-
+const Main = styled.div`
+width: calc(100vw - 150px);
+background: #F8F8FE;
 `
 
-const TableTitle = styled.div`
+const Title = styled.div`
+width: 80%;
+margin: 0 auto;
 display: flex;
 justify-content: space-between;
 padding: 1rem 2rem;
-h3 {
-    padding-top: .25rem; 
+h2 {
+    padding: .5rem 0 0 8rem; 
 }
 button {
-      padding: .5rem;
-      background: #eb7012;
-      color: white;
-      border-radius: 5px;
+    padding: .5rem;
+    background: #eb7012;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 1px 1 px 9px 0px rgba(187,186,196,1);
 }
+`
+
+const DataTitles = styled.div`
+width: 80%;
+margin: 0 auto;
+display:flex ;
+height: 3rem;
+border-radius: 20px;
+align-items: center;
+justify-content: space-between;
+padding: 0 1rem 0 1rem;
+
+p {
+    color: #968AAF;
+}
+
+p:nth-of-type(2) {
+    padding-left: 5rem;
+}
+`
+
+const DataItems = styled.div`
+
+`
+
+const DataItem = styled.div`
+width: 80%;
+margin: 1rem auto;
+display: flex;
+height: 3rem;
+cursor: pointer;
+align-items: center;
+justify-content: space-between;
+padding: 0 1rem 0 1rem;
+background: white;
+border-radius: 20px;
+box-shadow: 1px 1px 9px 0px rgba(187,186,196,1);
 `
